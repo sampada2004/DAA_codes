@@ -18,7 +18,6 @@ def gale_shapley(men_pref, women_pref):
                     men_engaged[man] = woman
                     women_engaged[woman] = man
                     free_men.add(current_partner)
-                    #free_men.remove(man)  # Remove man from free men as he's engaged now
                     break
     
     print("Final men engaged:", men_engaged)
