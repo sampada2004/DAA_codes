@@ -1,10 +1,11 @@
 from functools import cmp_to_key
 
 class Job:
-    def __init__(self, start, finish, profit):
+    def __init__(self, start, finish, profit,job_number):
         self.start = start
         self.finish = finish
         self.profit = profit
+        self.job_number=job_number
 
 def jobcomp(s1, s2):
     return s1.finish < s2.finish
@@ -47,7 +48,7 @@ for i in range(num_jobs):
     start = int(input(f"Enter start time for job {i + 1}: "))
     finish = int(input(f"Enter finish time for job {i + 1}: "))
     profit = int(input(f"Enter profit for job {i + 1}: "))
-    arr.append(Job(start, finish, profit))
+    arr.append(Job(start, finish, profit,i+1))
 
 n = len(arr)
 
@@ -56,4 +57,4 @@ optimal_profit, optimal_jobs = findMaxProfit(arr, n)
 print("The optimal profit is", optimal_profit)
 print("Jobs contributing to the optimal profit:")
 for job in optimal_jobs:
-    print(f"Job: Start={job.start}, Finish={job.finish}, Profit={job.profit}")
+    print(f"Job{job.job_number}: Start={job.start}, Finish={job.finish}, Profit={job.profit}")
